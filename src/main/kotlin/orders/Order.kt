@@ -18,7 +18,6 @@ class Order(
      */
     fun addProduct(product: Product?) {
         // TODO: add product to _products, ignore null
-        product?.let { _products.add(it) }
     }
 
     /**
@@ -26,15 +25,14 @@ class Order(
      */
     fun removeProductById(productId: Int) {
         // TODO: remove product from _products by id
-        _products.removeAll { it.id == productId }
     }
 
     /**
      * Returns the total price of all products in the order.
      */
     override fun calculateTotal(): Int {
-        // TODO: sum the prices of all product
-        return _products.sumOf { it.price }
+        // TODO: sum the prices of all products
+        return 0
     }
 
     /**
@@ -43,8 +41,6 @@ class Order(
      */
     fun pay() {
         // TODO: throw if _products is empty, otherwise set status to Paid
-        _products.ifEmpty {throw IllegalStateException("No products") }
-        status = OrderStatus.Paid   
     }
 
     /**
@@ -53,6 +49,5 @@ class Order(
      */
     fun cancel(reason: String?) {
         // TODO: set status to Cancelled with reason (default "Unknown reason" if null)
-        status = OrderStatus.Cancelled(reason ?: "Unknown reason")
     }
 }
